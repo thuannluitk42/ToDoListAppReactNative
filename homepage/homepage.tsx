@@ -10,9 +10,21 @@ import {
 } from 'react-native';
 import {styles} from './style/style';
 class App extends Component {
-  _onPress = () => {
-    console.log('nhan em di');
+  private content: String;
+
+  constructor(props:any){
+    super(props);
+    this.content = '';
+  }
+
+  private _onPress = () => {
+    console.log(this.content);
   };
+
+  private _onTextChange = (text:String) => {
+    this.content = text;
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -31,6 +43,7 @@ class App extends Component {
           <TextInput
             style={[styles.input, styles.shadow]}
             placeholder="Write a task"
+            onChangeText={this._onTextChange}
           />
           <TouchableOpacity
             style={[styles.btn, styles.shadow]}

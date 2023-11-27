@@ -73,7 +73,7 @@ export const styles = StyleSheet.create({
   square: {
     width: 24,
     height: 24,
-    borderColor: '#92c3d5',
+    backgroundColor: '#92c3d5',
     borderRadius: 5,
   },
   mr_16:{
