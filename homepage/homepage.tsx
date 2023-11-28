@@ -28,7 +28,7 @@ class App extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Today's Tasks</Text>
         <ScrollView style={styles.mt_24}>
-          <Item />
+          <Item content={"Like"}/>
         </ScrollView>
 
         <View style={styles.wrapper}>

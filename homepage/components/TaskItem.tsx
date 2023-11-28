@@ -3,11 +3,16 @@
 import {Text, View} from 'react-native';
 import {styles} from '../style/style';
 
-export const Item = () => {
+interface ItemProps {
+    content: String;
+}
+
+
+export const Item = ({content}: ItemProps) => {
 return  <View style={styles.item}>
                 <View style={styles.subItem}>
                         <View style={[styles.square, styles.mr_16]} />
-                        <Text>Like</Text>
+                        <Text>{content}</Text>
                 </View>
                 <View style={styles.circle} />
         </View>;
