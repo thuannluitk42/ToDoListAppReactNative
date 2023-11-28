@@ -7,20 +7,31 @@ import {ScrollView, Text, View,
 } from 'react-native';
 import {styles} from './style/style';
 import {Item} from './components/TaskItem';
-class App extends Component {
+
+interface iProps{}
+interface iState{
+  titleItem:String
+}
+class App extends Component <iProps, iState>{
   private content: String;
 
   constructor(props:any){
     super(props);
     this.content = '';
+    this.state = {
+      titleItem : '',
+    };
   }
 
   private _onPress = () => {
-    console.log(this.content);
+    this.setState({
+      titleItem:this.content,
+    });
   };
 
   private _onTextChange = (text:String) => {
     this.content = text;
+
   };
 
   render() {
@@ -28,7 +39,7 @@ class App extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Today's Tasks</Text>
         <ScrollView style={styles.mt_24}>
-          <Item content={"Like"}/>
+          <Item content={this.state.titleItem}/>
         </ScrollView>
 
         <View style={styles.wrapper}>
