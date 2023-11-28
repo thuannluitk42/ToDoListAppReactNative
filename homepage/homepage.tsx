@@ -33,7 +33,8 @@ class App extends Component <iProps, iState>{
     this.arrayItem.push(this.content);
     this.setState({
       listItem: this.arrayItem,
-    })
+    });
+    // this._onTextChange('');
   };
 
   private _onTextChange = (text:String) => {
@@ -41,11 +42,14 @@ class App extends Component <iProps, iState>{
   };
 
   private _renderTaskItem = ():Array<ReactElement> => {
-    return this.state.listItem.map((item, index) => <Item key={index} content={item} onDelete={this._onDelete}/>);
+    return this.state.listItem.map((item, index) => <Item key={index} index={index} content={item} onDelete={this._onDelete}/>);
   };
 
-  private _onDelete = () => {
-    console.log('fan em di');
+  private _onDelete = (index:number) => {
+    this.arrayItem.splice(index,1);
+    this.setState({
+      listItem: this.arrayItem,
+    });
   };
 
   render() {

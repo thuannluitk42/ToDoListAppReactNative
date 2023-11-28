@@ -5,12 +5,13 @@ import {styles} from '../style/style';
 
 interface ItemProps {
     content: String;
-    onDelete: Function
+    onDelete: Function;
+    index:Number;
 }
 
 
-export const Item = ({content, onDelete}: ItemProps) => {
-return  <TouchableOpacity onPress={() => onDelete()}>
+export const Item = ({content, onDelete, index}: ItemProps) => {
+return  <TouchableOpacity onPress={() => onDelete(index)}>
                 <View style={[styles.item, styles.mt_16]}>
                                 <View style={styles.subItem}>
                                         <View style={[styles.square, styles.mr_16]} />
