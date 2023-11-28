@@ -2,6 +2,7 @@
 /* eslint-disable prettier/prettier */
 import {Text, TouchableOpacity, View} from 'react-native';
 import {styles} from '../style/style';
+import { memo } from 'react';
 
 interface ItemProps {
     content: String;
@@ -10,7 +11,7 @@ interface ItemProps {
 }
 
 
-export const Item = ({content, onDelete, index}: ItemProps) => {
+export const Item = memo(({content, onDelete, index}: ItemProps) => {
 return  <TouchableOpacity onPress={() => onDelete(index)}>
                 <View style={[styles.item, styles.mt_16]}>
                                 <View style={styles.subItem}>
@@ -20,4 +21,4 @@ return  <TouchableOpacity onPress={() => onDelete(index)}>
                                 <View style={styles.circle} />
                 </View>
         </TouchableOpacity>;
-};
+});
