@@ -1,14 +1,12 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
-import {
-  ScrollView,
-  Text,
-  View,
+import {ScrollView, Text, View,
   TextInput,
   TouchableOpacity,
   Image,
 } from 'react-native';
 import {styles} from './style/style';
+import {Item} from './components/TaskItem';
 class App extends Component {
   private content: String;
 
@@ -30,13 +28,7 @@ class App extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Today's Tasks</Text>
         <ScrollView style={styles.mt_24}>
-          <View style={styles.item}>
-            <View style={styles.subItem}>
-              <View style={[styles.square, styles.mr_16]} />
-              <Text>Like</Text>
-            </View>
-            <View style={styles.circle} />
-          </View>
+          <Item />
         </ScrollView>
 
         <View style={styles.wrapper}>
