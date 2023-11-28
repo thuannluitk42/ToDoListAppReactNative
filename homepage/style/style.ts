@@ -82,4 +82,7 @@ export const styles = StyleSheet.create({
   mt_24:{
     marginTop: 24,
   },
+  mt_16:{
+    marginTop: 16,
+  },
 });

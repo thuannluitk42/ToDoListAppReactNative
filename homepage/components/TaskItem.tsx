@@ -9,7 +9,7 @@ interface ItemProps {
 
 
 export const Item = ({content}: ItemProps) => {
-return  <View style={styles.item}>
+return  <View style={[styles.item, styles.mt_16]}>
                 <View style={styles.subItem}>
                         <View style={[styles.square, styles.mr_16]} />
                         <Text>{content}</Text>

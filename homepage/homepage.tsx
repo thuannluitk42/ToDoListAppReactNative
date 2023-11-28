@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, {Component} from 'react';
+import React, {Component, ReactElement} from 'react';
 import {ScrollView, Text, View,
   TextInput,
   TouchableOpacity,
@@ -10,28 +10,38 @@ import {Item} from './components/TaskItem';
 
 interface iProps{}
 interface iState{
-  titleItem:String
+  titleItem:String,
+  listItem:String[],
 }
 class App extends Component <iProps, iState>{
   private content: String;
+  private arrayItem:String[];
 
   constructor(props:any){
     super(props);
     this.content = '';
+    this.arrayItem = [];
     this.state = {
       titleItem : '',
+      listItem:[],
+
     };
   }
 
   private _onPress = () => {
+
+    this.arrayItem.push(this.content);
     this.setState({
-      titleItem:this.content,
-    });
+      listItem: this.arrayItem,
+    })
   };
 
   private _onTextChange = (text:String) => {
     this.content = text;
+  };
 
+  private _renderTaskItem = ():Array<ReactElement> => {
+    return this.state.listItem.map((item, index) => <Item key={index} content={item}/>);
   };
 
   render() {
@@ -39,7 +49,7 @@ class App extends Component <iProps, iState>{
       <View style={styles.container}>
         <Text style={styles.title}>Today's Tasks</Text>
         <ScrollView style={styles.mt_24}>
-          <Item content={this.state.titleItem}/>
+          {this._renderTaskItem()}
         </ScrollView>
 
         <View style={styles.wrapper}>
