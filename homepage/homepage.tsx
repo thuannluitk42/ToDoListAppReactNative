@@ -41,7 +41,11 @@ class App extends Component <iProps, iState>{
   };
 
   private _renderTaskItem = ():Array<ReactElement> => {
-    return this.state.listItem.map((item, index) => <Item key={index} content={item}/>);
+    return this.state.listItem.map((item, index) => <Item key={index} content={item} onDelete={this._onDelete}/>);
+  };
+
+  private _onDelete = () => {
+    console.log('fan em di');
   };
 
   render() {
